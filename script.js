@@ -8,18 +8,33 @@ var colors = [
 ];
 
 var squares = document.querySelectorAll(".square");
-var pickedColor = colors[3];
+var pickedColor = pickColor();
 var rgb = document.getElementById("rgb");
+var messageDisplay = document.getElementById("message");
+
 rgb.textContent = pickedColor;
 
 for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i];
     squares[i].addEventListener("click", function () {
-        if(this.style.backgroundColor === pickedColor){
-
+        var clickedColor = this.style.backgroundColor;
+        if(clickedColor === pickedColor){
+            messageDisplay.textContent = "Correct!";
+            changeColors(clickedColor);
         }else{
+            messageDisplay.textContent = "Try Again!";
             this.style.backgroundColor = "#232323";
         }
     });
 }
 
+function changeColors(color) {
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = color;
+    }
+}
+
+function pickColor() {
+    var random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+}
