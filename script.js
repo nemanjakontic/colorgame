@@ -5,6 +5,7 @@ var pickedColor = pickColor();
 var rgb = document.getElementById("rgb");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
+var btnReset = document.getElementById("reset");
 
 rgb.textContent = pickedColor;
 
@@ -16,6 +17,7 @@ for (var i = 0; i < squares.length; i++) {
             messageDisplay.textContent = "Correct!";
             changeColors(clickedColor);
             h1.style.backgroundColor = clickedColor;
+            btnReset.textContent = "Play Again?";
         } else {
             messageDisplay.textContent = "Try Again!";
             this.style.backgroundColor = "#232323";
@@ -49,3 +51,16 @@ function randomColor() {
     var b = Math.floor(Math.random() * 256);
     return "rgb(" + r + ", " + g + ", " + b + ")";
 }
+
+btnReset.addEventListener("click", function () {
+    colors = generateRandomColors(6);
+    pickedColor = pickColor();
+    rgb.textContent = pickedColor;
+
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];
+    }
+    btnReset.textContent = "New Colors";
+    messageDisplay.textContent = "";
+    h1.style.backgroundColor = "#232323";
+});

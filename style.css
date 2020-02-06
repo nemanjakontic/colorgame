@@ -18,6 +18,9 @@ h1{
     margin: 0em;
     padding: 0em;
 }
-span{
-    color: white;
+
+#stripe{
+    background-color: white;
+    height: 30px;
+    text-align: center;
 }
