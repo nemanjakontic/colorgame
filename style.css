@@ -15,6 +15,8 @@ body{
 }
 h1{
     color: white;
+    margin: 0em;
+    padding: 0em;
 }
 span{
     color: white;
