@@ -66,7 +66,7 @@ btnReset.addEventListener("click", function () {
     }
     btnReset.textContent = "New Colors";
     messageDisplay.textContent = "";
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
 });
 
 btnEasy.addEventListener("click", function () {
